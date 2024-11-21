@@ -1,0 +1,202 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(238, 77, 45);
+}
+ label {
+    background-image: url(../Log/flame.gif);
+    background-size: cover;
+    background-position: bottom;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+form {
+    margin: 7px 5px ;
+    padding: 10px 7px;
+    border: 1px groove lightsalmon;
+    height: 97%;
+    font-size: 20px;
+    min-height: 490px;
+    position: relative;
+}
+
+.notification {
+    padding: 5px 15px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.notification.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.notification.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+input[name="report_title"],input[name="report_content"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+input[name="report_title"],input[name="report_content"] {
+    border-radius: 5px;
+    border: 2px groove salmon;
+    outline: none;
+}
+
+.pict {
+    position: relative;
+    display: inline-block;
+}
+
+.pict input[type="file"] {
+    display: none; /* Ẩn nút gốc */
+}
+
+.pict::after {
+    content: "Chọn ảnh";
+    display: inline-block;
+    color: white;
+    background-color: var(--primary-color);
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 65px;
+    border-radius: 7px;
+    transition: all 0.2s ease-in-out;
+}
+
+.pict:hover::after {
+    background-color: salmon;
+    box-shadow: 3px 3px 0 darkorange;
+    transform: translate(-3px,-3px);
+}
+
+.pict:active::after {
+    background-color: white;
+    box-shadow: none;
+    transform: translateY(3px);
+}
+
+.pict{
+    display: flex;
+    position: relative;
+}
+.pict >img{
+    position: absolute;
+    right: 5px;
+    height: 120px;
+    border-radius: 10px;
+}
+.bt{
+position: absolute;
+bottom: 10px;
+width: 98%;
+}
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.7s ease , all 0.1s ease-in;
+}
+
+input[type="submit"]:hover {
+    background-color: white;
+    border: 1px groove #45a049 ;
+    color: #45a049;
+    box-shadow: 0 3px 0 #45a049;
+    transform: translateY(-3px);
+}
+input[type="submit"]:active{
+    box-shadow:1px 3px 10px #45a049,-1px 3px 30px #45a049;
+    transform: translateY(0);
+}
+
+
+input[name="report_title"],input[name="report_content"]:hover, input[name="report_title"],input[name="report_content"]:focus {
+    box-shadow: 1px 1px 5px lightsalmon;
+}
+
+input[name="report_title"],input[name="report_content"]:active {
+    box-shadow: 1px 1px 5px lightsalmon, 1px 1px 15px white, 1px 1px 30px lightsalmon;
+}
+
+textarea {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px groove salmon;
+    font-size: 20px;
+    outline: none;
+    height: 120px;
+}
+
+textarea:hover, textarea:focus {
+    box-shadow: 1px 1px 5px lightsalmon;
+}
+
+textarea:active {
+    box-shadow: 1px 1px 5px lightsalmon, 1px 1px 15px white, 1px 1px 30px lightsalmon;
+}
+
+select {
+    border-radius: 5px;
+    border: 2px groove salmon;
+    font-size: 16px;
+    outline: none;
+}
+option:hover ,option:focus{
+    background-color: var(--primary-color);
+}
+option:hover, option:focus {
+    box-shadow: 1px 1px 5px lightsalmon;
+}
+
+option:active {
+    box-shadow: 1px 1px 5px lightsalmon, 1px 1px 15px white, 1px 1px 30px lightsalmon;
+}
+
+.image-preview {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 300px;
+    border: 1px solid #ccc;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input[type="text"],input[type="tel"],input[type="email"]{
+    height: 25px;
+}

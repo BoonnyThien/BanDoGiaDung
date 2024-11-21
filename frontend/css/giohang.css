@@ -1,0 +1,121 @@
+/* ____________________________________________________Gio hang_______________________________ */
+
+
+.cart_all,
+.cart_select-all,
+.cart_product-select{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    background-color: var(--white-color);
+    border-radius: 20px;
+}
+
+
+.cart_select-all p {
+    margin: 0 ;
+}
+
+.cart_select-all p span{
+    color: var(--primary-color);
+}
+
+
+.input_wrap {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.input_wrap input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.cart_remove-wrap {
+    padding: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+.cart_confirm {
+    padding: 10px;
+    background-color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.cart_confirm-wrap,
+.cart_confirm-wrap div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    padding: 2px 10px;
+}
+
+.cart_confirm-wrap {
+    margin-top: 10px;
+}
+
+.cart_confirm-wrap i {
+    margin-right: 10px;
+    font-size: 2.5rem;
+}
+
+i.toggle_on {
+    display: none;
+}
+
+.cart_confirm-infor {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+
+.cart_confirm-infor-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart_confirm-infor-wrap h1 {
+    font-size: 2.5rem;
+}
+
+.cart_confirm-infor-wrap p {
+    font-size: 1.6rem;
+}
+
+.cart_confirm-infor-wrap span {
+    font-size: 2rem;
+}
+
+.cart_confirm-btn {
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 20px;
+}
+
+.cart_confirm-btn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}

@@ -1,0 +1,167 @@
+/* ___________________________________________________________________Taikhoan.php___________________________________________________ */
+
+.account_wrap {
+    background-color: var(--white-color);
+    margin-top: 20px;
+    padding: 20px;
+    color: var(--text-color);
+    min-height: 500px;
+    display: none;
+}
+
+.order_wrap {
+    padding: 20px;
+    color: var(--text-color);
+    min-height: 500px;
+    display: none;
+}
+
+.account_title {
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+.account_title p {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+.account_title span {
+    font-size: 1.6rem;
+}
+
+.account_content {
+    padding-top: 20px;
+}
+
+.account_wrap-child {
+    display: flex;
+    font-size: 1.6rem;
+    padding: 10px 10px;
+}
+
+.account_wrap-child p {
+    min-width: 150px;
+    margin: 5px 0;
+}
+
+.account_wrap-child input {
+    flex: 1;
+    padding: 5px;
+}
+
+.account_wrap-child span {
+    line-height: 26px;
+}
+
+.btn_change-pass {
+    margin-left: 20px;
+}
+
+.btn_save {
+    margin: auto;
+}
+
+.input_disable {
+    pointer-events: none;
+    background-color: #f5efef;
+}
+
+.account_img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.account_img img {
+    display: flex;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.btn_change-img {
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.order_content-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.order_content-title p,
+.order_content-title h1 {
+    display: inline-block;
+}
+
+.order_content-title p {
+    font-size: 1.4rem;
+}
+
+.order_content-title p span {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+.order_title-list {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    color: var(--text-color);
+    background-color: var(--white-color);
+}
+
+.order_title-child {
+    flex: 1;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.order_title-child span {
+    display: block;
+    text-align: center;
+}
+
+.order_title-child.order_title-child--active {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.order_content {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--white-color);
+    border-radius: 20px;
+}
+
+.cart_product-wrap {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart_product-infor-number {
+    min-width: 200px;
+}
+
+
+.cart_totalPrice {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 40px 20px 20px;
+    font-size: 2rem;
+}
+
+.cart_totalPrice p {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin: 0 10px;
+}

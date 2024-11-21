@@ -1,0 +1,226 @@
+/* ______________________________________Chi tiết sản phẩm _____________________________ */
+
+.product_detail {
+    margin-top: var(--height-header);
+    padding-bottom: 20px;
+    background-color: #f5f5f5;
+}
+
+.detail_infor-img {
+    width: 100%;
+    border-right: 2px solid #ccc;
+}
+
+.img_main,
+.img_sub img{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.border_active {
+    border-radius: 5px;
+    border: 3px solid var(--primary-color);
+}
+
+.img_sub {
+    width: 33.33%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.img_sub-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.product_detail-background {
+    background-color: #fff;
+    padding-left: 40px;
+    margin-bottom: 10px;
+}
+
+.product_detail-name {
+    font-size: 2.5rem;
+    line-height: 3rem;
+}
+
+.product_detail-quality {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.product-item__evaluate {
+    font-size: 1.6rem;
+    margin-left: 30px;
+    margin-right: 30px ;
+}
+
+.product-item__evaluate p,
+.product-item__sales p {
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px 0;
+    padding-left: 15px;
+    padding-right: 5px;
+    text-decoration: underline;
+    border-left: 2px solid #ccc;
+}
+
+.product-item__sales {
+    flex: 1;
+    font-size: 1.6rem;
+
+}
+
+.product_detail-price {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.product_detail-price-old {
+    margin-right: 30px;
+    font-size: 2rem;
+    color: #acacac;
+    text-decoration: line-through;
+}
+
+.product_detail-price-new {
+    font-weight: bold;
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.product_detail-discount,
+.product_detail_transport,
+.product_detail-number-wrap,
+.product_detail-return {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.product_detail-discount span,
+.product_detail_transport span,
+.product_detail-number-wrap span,
+.product_detail-return span {
+    min-width: 200px;
+}
+
+.product_detail-discount p,
+.product_detail_transport p,
+.product_detail-number-wrap p,
+.product_detail-return p {
+    margin-left: 20px;
+}
+
+.product_detail-discount p {
+    color: var(--primary-color);
+    background-color: #fbebed;
+    padding: 5px;
+}
+
+.product_detail_transport i {
+    padding-right: 10px;
+}
+
+.product_detail-button-group {
+    margin: 20px 0;
+}
+
+.product_detail-button {
+    width: 200px;
+    height: 50px;
+    margin-right: 40px;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+}
+
+.product_detail-button i {
+    padding-right: 10px;
+}
+
+.product_detail-btncart {
+    background-color: #ffeee8;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.product_detail-btnbuy {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.product_detail-return {
+    border-top: 2px solid #ccc;
+    padding-top: 15px;
+}
+
+.product_detail-return i {
+    padding-right: 10px;
+}
+
+.product_specific {
+    /* background-color: var(--white-color); */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.product_specific-infor {
+    height: 100%;
+    margin-left: 10px;
+    background-color: var(--white-color);
+    padding-left: 5px;
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.product_specific-infor h1,
+.product_specific-describe h1 {
+    margin: 0;
+    padding: 20px 0 10px 0;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.product_specific-infor-wrap {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.product_specific-infor-wrap span {
+    padding-left: 10px;
+    width: 200px;
+}
+
+.product_specific-infor-wrap p {
+    padding-left: 20px;
+}
+
+.product_specific-describe {
+    height: 100%;
+    background-color: var(--white-color);
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+.product_specific-describe p {
+    padding: 0 10px;
+    margin: 0;
+    line-height: 2rem;
+}
+
+.product_detail-buy-updown {
+    color: var(--primary-color);
+}
