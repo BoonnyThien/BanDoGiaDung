@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+:root {
+    --primary-color: rgb(238, 77, 45);
+    --primary-color1: rgb(238, 55, 45);
+    --primary-color2: rgb(45, 222, 238);
+    --primary-color3: rgb(255, 134, 109);
+    --primary-color4: #f5f5f5;
+    --primary-color5: rgb(255, 164, 146);
+    --primary-color6: #fc5a31;
+    --box-shadow: 2px 2px 10px lightgray;
+
+}
+h2{
+    background-image: url(../Log/flame1.gif);
+    background-size: cover;
+    background-position: bottom;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+.sosanh{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    border-bottom: 3px solid var(--primary-color1);
+    border-top: 2px solid var(--primary-color1);
+    font-size: 27px;
+    padding: 10px;
+}
+.ssname{
+    font-size: 18px;
+}
+.sosanh>input{
+    outline: none;
+    border: 1px groove var(--primary-color3);
+    padding: 5px 7px;
+    height: 26px;
+}
+.sosanh>input[type='text']{
+    border-radius: 7px 0 0 7px;
+    padding: 3px 20px 0;
+    margin: 2px 0 2px 10px;
+    width: 500px;
+    transition: all 0.15s ease-in;
+
+}
+.sosanh>input[type='text']:focus{
+    transform: translateY(-3px);
+    box-shadow: 3px 3px 2px var(--primary-color);
+
+}
+.sosanh>input[type='submit']{
+    border-radius: 0 7px 7px 0;
+    margin: 5px 0;
+    height: 26px;
+    background-color: var(--primary-color6);
+    color: white;
+    font-weight: bold;
+    transition: all 0.15s ease-in;
+}
+.sosanh>input[type='submit']:hover{
+    transform: translate(-3px,-3px);
+    box-shadow: 3px 3px 0 var(--primary-color3);
+    cursor: pointer;
+}
+.sosanh>input[type='submit']:active{
+    transform: translate(0,0);
+    background-color: white;
+    color: var(--primary-color);
+    box-shadow: 3px 3px 20px var(--primary-color1),
+    3px 3px 25px white ,3px 3px 30px var(--primary-color1);
+}
+h5{
+    font-size: 22px;
+    text-shadow: 2px 2px 30px var(--primary-color3);
+    color: var(--primary-color);
+}
+.search-results {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap; /* Chặn không cho xuống dòng */
+    padding: 20px;
+    flex-wrap: nowrap; /* Không cho phép bọc dòng */    
+    border: 1px groove var(--primary-color);
+}
+.search-results::-webkit-scrollbar-thumb:hover{
+    background-color: var(--primary-color5);
+}
+
+.card {
+    font-size: 14px;
+    width: 200px;
+    height: 300px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 14px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    white-space: normal;
+    text-align: left;
+    flex: 0 0 auto; /* Đảm bảo các thẻ card có kích thước cố định */
+    position: relative;
+    transition: all 0.9 ease-in;
+    box-shadow: 2px 2px 0 var(--primary-color4);
+}
+.card::before{
+    content: "Ưu đãi";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    z-index: 10;
+}
+.card:hover{
+    border: 1px groove var(--primary-color);
+    box-shadow: 2px 2px 20px var(--primary-color4);
+}
+.card:hover img{
+    transform:translateY(-3px);
+}
+.card:hover .sanpham.name{
+    color: var(--primary-color);
+}
+.card > img {
+    width: 99%;
+    object-fit: cover;
+    padding: 2px 3px;
+    height: 178px;
+    border-style: solid; 
+    border-width: 3px 3px 15px 3px; 
+    transition: all 0.2s ease-in;
+    border-color: var(--primary-color) var(--primary-color) var(--primary-color2) var(--primary-color); 
+}
+.sanpham {
+    width: 100%;
+}
+
+.sanpham.name {
+    overflow: hidden;             
+    text-overflow: ellipsis;       /* Thay thế phần bị cắt bởi dấu ba chấm */
+    display: -webkit-box;          /* Sử dụng hộp định dạng linh hoạt */
+    -webkit-line-clamp: 3;         
+    -webkit-box-orient: vertical;  
+    line-height: 15px;            /* Chiều cao của mỗi dòng */
+    height: 45px;
+    margin: 0 0 10px;
+    background-image: url(../Log/flame1.gif);
+    background-size: cover;
+    background-position: bottom;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;                 
+}
+.sanpham.thuonghieu{
+    position: absolute;
+    display: inline-block;
+    width: auto;
+    top: 5px;
+    left: 5px;
+    z-index: 10;
+    background-color: var(--primary-color1);
+    color: white;
+    transition: all0.2 ease-in;
+}
+.sanpham.price_old{
+    text-decoration: line-through;
+}
+.sanpham.price_old::after{
+    content: "đ";
+}
+.sanpham.price_new{
+    font-size: 22px;
+    color: red;
+    font-weight: bolder;
+}
+.sanpham.price_new::after{
+    content: "đ";
+    font-size: 15px;
+}
+.price{
+    display: flex;
+    margin: 5px 0;
+}
+.sanpham.percent{
+    color: var(--primary-color);
+    border-radius: 5px;
+    padding: 1px 5px;
+    margin: 0 5px 0 50px ;
+    white-space: nowrap;
+}
+.sanpham.sanpham.percent::before{
+    content: "-";
+}
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+.product-link:hover {
+    opacity: 0.9;
+}
+.product-cell {
+    transition: background-color 0.2s;
+}
+.product-cell:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.compare-table th,
+.compare-table td {
+    padding: 10px;
+    border: 1px solid #eee;
+    width: 200px; 
+    text-align: left;
+    vertical-align: top;
+}
+
+.compare-table th {
+    background-color: rgb(255, 134, 109);
+    color: white;
+    width: 80px; 
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.compare-table .empty-cell {
+    background-color: #f9f9f9;
+    border: 1px dashed #ddd;
+}
+
+.compare-table .has-product {
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+/* Giữ bảng khi tìm kiếm */
+.compare-container {
+    position: sticky;
+    top: 20px;
+    background: white;
+    z-index: 100;
+    margin-bottom: 20px;
+}
+
+/* Định dạng giá */
+.pri {
+    font-weight: bold;
+    color: rgb(238, 77, 45);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .compare-table {
+        font-size: 14px;
+    }
+    
+    .compare-table th,
+    .compare-table td {
+        padding: 5px;
+    }
+}
+.empty-card {
+    cursor: default;
+}
+
+.placeholder-image {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    margin: 10px auto;
+}
+input.xoa{
+    background-color: var(--primary-color3);
+    color: white;
+    padding: 5px 10px;
+    margin: 9px 0;
+    border: 1px groove lightcoral;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.5s ease-in , transform 0.1s ease-out;
+}
+input.xoa:hover{
+    box-shadow: 1px 1px 10px var(--primary-color1),
+    1px 1px 30px var(--primary-color3);
+}
+input.xoa:active{
+    transform: scale(0.85);
+}

@@ -1,0 +1,61 @@
+/* ______________________________________________Sản phẩm theo danh mục____________________________________- */
+.home_title{
+    text-align: center;
+    margin: 0;
+    padding: 15px 0;
+    font-size: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.04);
+    color: var(--primary-color);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.category-item-band {
+    font-size: 1.3rem;
+    padding: 5px 16px;
+    display: flex;
+}
+.band_check {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.band_check i {
+    color: var(--primary-color);
+    display: none;
+}
+.category-item-band.check_active i{
+    display: block;
+}
+
+.category_check-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category_check-price span {
+    font-size: 1.8rem;
+}
+
+.category-price{
+    width: 70px;
+    margin: 0 10px;
+    box-sizing: border-box;
+    padding: 5px 5px;
+    font-size: 1.3rem;
+}
+
+.check-price-btn {
+    margin: 15px 20px;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    width: calc(100% - 40px);
+}
