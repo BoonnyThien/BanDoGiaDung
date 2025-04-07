@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản - Shop Đồ Gia Dụng</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="logo">
+                    <h1>Shop Đồ Gia Dụng</h1>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-right">
+                    <a href="account.html" class="account-link">
+                        <i class="fas fa-user"></i>
+                        <span>Tài khoản</span>
+                    </a>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Giỏ hàng</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="categories">
+                    <!-- Categories will be loaded dynamically -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="account-page">
+                <h2>Tài khoản của bạn</h2>
+                
+                <!-- Login/Register Form (shown when user is not logged in) -->
+                <div id="auth-section" class="auth-forms">
+                    <div class="auth-tabs">
+                        <div class="auth-tab active" data-tab="login">Đăng nhập</div>
+                        <div class="auth-tab" data-tab="register">Đăng ký</div>
+                    </div>
+                    
+                    <div id="login-form" class="auth-form active">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" class="form-control" placeholder="Nhập email của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Mật khẩu</label>
+                            <input type="password" id="login-password" class="form-control" placeholder="Nhập mật khẩu">
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#">Quên mật khẩu?</a>
+                        </div>
+                        <button id="login-btn" class="login-btn">Đăng nhập</button>
+                    </div>
+                    
+                    <div id="register-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="register-name">Họ tên</label>
+                            <input type="text" id="register-name" class="form-control" placeholder="Nhập họ tên của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" class="form-control" placeholder="Nhập email của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Mật khẩu</label>
+                            <input type="password" id="register-password" class="form-control" placeholder="Nhập mật khẩu">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm-password">Xác nhận mật khẩu</label>
+                            <input type="password" id="register-confirm-password" class="form-control" placeholder="Nhập lại mật khẩu">
+                        </div>
+                        <button id="register-btn" class="register-btn">Đăng ký</button>
+                    </div>
+                </div>
+                
+                <!-- Account Dashboard (shown when user is logged in) -->
+                <div id="account-dashboard" class="account-content" style="display: none;">
+                    <div class="account-sidebar">
+                        <ul class="account-menu">
+                            <li><a href="#" class="active" data-section="profile"><i class="fas fa-user"></i> Thông tin cá nhân</a></li>
+                            <li><a href="#" data-section="orders"><i class="fas fa-shopping-bag"></i> Đơn hàng</a></li>
+                            <li><a href="#" data-section="addresses"><i class="fas fa-map-marker-alt"></i> Địa chỉ</a></li>
+                            <li><a href="#" data-section="wishlist"><i class="fas fa-heart"></i> Danh sách yêu thích</a></li>
+                            <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="account-main">
+                        <!-- Profile Section -->
+                        <div id="profile-section" class="account-section">
+                            <h3>Thông tin cá nhân</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-name">Họ tên</label>
+                                    <input type="text" id="profile-name" class="form-control" value="Nguyễn Văn A">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">Email</label>
+                                    <input type="email" id="profile-email" class="form-control" value="nguyenvana@example.com">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-phone">Số điện thoại</label>
+                                    <input type="tel" id="profile-phone" class="form-control" value="0123 456 789">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-birthday">Ngày sinh</label>
+                                    <input type="date" id="profile-birthday" class="form-control" value="1990-01-01">
+                                </div>
+                            </div>
+                            <button class="save-btn">Lưu thay đổi</button>
+                        </div>
+                        
+                        <!-- Orders Section -->
+                        <div id="orders-section" class="account-section" style="display: none;">
+                            <h3>Đơn hàng của bạn</h3>
+                            <p>Bạn chưa có đơn hàng nào.</p>
+                        </div>
+                        
+                        <!-- Addresses Section -->
+                        <div id="addresses-section" class="account-section" style="display: none;">
+                            <h3>Địa chỉ của bạn</h3>
+                            <p>Bạn chưa có địa chỉ nào.</p>
+                            <button class="save-btn">Thêm địa chỉ mới</button>
+                        </div>
+                        
+                        <!-- Wishlist Section -->
+                        <div id="wishlist-section" class="account-section" style="display: none;">
+                            <h3>Danh sách yêu thích</h3>
+                            <p>Bạn chưa có sản phẩm nào trong danh sách yêu thích.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Về chúng tôi</h3>
+                    <p>Shop Đồ Gia Dụng - Nơi mua sắm tin cậy cho mọi gia đình</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Liên hệ</h3>
+                    <p>Email: contact@shopdogiadung.com</p>
+                    <p>Phone: 0123 456 789</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Theo dõi chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Shop Đồ Gia Dụng. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/account.js"></script>
+</body>
+</html> 

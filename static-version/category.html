@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục sản phẩm - Bán đồ gia dụng</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="assets/font/fontawesome-free-6.6.0-web/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__navbar">
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a href="index.html" class="header__navbar-item-link">
+                        <img src="assets/images/logo.png" alt="Logo" class="header__navbar-item-logo">
+                    </a>
+                </li>
+                <li class="header__navbar-item">
+                    <div class="header__navbar-search">
+                        <input type="text" class="header__navbar-search-input" placeholder="Tìm kiếm sản phẩm...">
+                        <button class="header__navbar-search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a href="account.html" class="header__navbar-item-link">
+                        <i class="fas fa-user"></i>
+                        Tài khoản
+                    </a>
+                </li>
+                <li class="header__navbar-item">
+                    <a href="cart.html" class="header__navbar-item-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        Giỏ hàng
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="category">
+        <div class="grid">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html" class="breadcrumb__item">Trang chủ</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="breadcrumb__item active">Danh mục sản phẩm</span>
+            </div>
+
+            <!-- Category content -->
+            <div class="category__content">
+                <!-- Filters -->
+                <aside class="category__filters">
+                    <div class="filter-section">
+                        <h3 class="filter-section__title">Danh mục</h3>
+                        <ul class="filter-section__list">
+                            <li class="filter-section__item">
+                                <a href="#" class="filter-section__link active">Tất cả</a>
+                            </li>
+                            <li class="filter-section__item">
+                                <a href="#" class="filter-section__link">Nhà bếp</a>
+                            </li>
+                            <li class="filter-section__item">
+                                <a href="#" class="filter-section__link">Phòng ngủ</a>
+                            </li>
+                            <li class="filter-section__item">
+                                <a href="#" class="filter-section__link">Phòng tắm</a>
+                            </li>
+                            <li class="filter-section__item">
+                                <a href="#" class="filter-section__link">Phòng khách</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-section__title">Giá</h3>
+                        <div class="filter-section__price">
+                            <input type="number" class="filter-section__price-input" placeholder="Từ">
+                            <span>-</span>
+                            <input type="number" class="filter-section__price-input" placeholder="Đến">
+                            <button class="filter-section__price-btn">Lọc</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-section__title">Thương hiệu</h3>
+                        <ul class="filter-section__list">
+                            <li class="filter-section__item">
+                                <label class="filter-section__checkbox">
+                                    <input type="checkbox" name="brand" value="brand1">
+                                    <span>Thương hiệu 1</span>
+                                </label>
+                            </li>
+                            <li class="filter-section__item">
+                                <label class="filter-section__checkbox">
+                                    <input type="checkbox" name="brand" value="brand2">
+                                    <span>Thương hiệu 2</span>
+                                </label>
+                            </li>
+                            <li class="filter-section__item">
+                                <label class="filter-section__checkbox">
+                                    <input type="checkbox" name="brand" value="brand3">
+                                    <span>Thương hiệu 3</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Products grid -->
+                <div class="category__products">
+                    <!-- Sort options -->
+                    <div class="category__sort">
+                        <div class="category__sort-label">Sắp xếp theo:</div>
+                        <select class="category__sort-select">
+                            <option value="popular">Phổ biến</option>
+                            <option value="price-asc">Giá tăng dần</option>
+                            <option value="price-desc">Giá giảm dần</option>
+                            <option value="newest">Mới nhất</option>
+                        </select>
+                    </div>
+
+                    <!-- Products grid -->
+                    <div class="products-grid">
+                        <!-- Product cards will be loaded here -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="pagination__btn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="pagination__btn active">1</button>
+                        <button class="pagination__btn">2</button>
+                        <button class="pagination__btn">3</button>
+                        <button class="pagination__btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="grid">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">Về chúng tôi</h3>
+                    <p class="footer__text">
+                        Chúng tôi là cửa hàng chuyên cung cấp các sản phẩm gia dụng chất lượng cao,
+                        với đa dạng các mặt hàng và mức giá phù hợp với mọi nhu cầu.
+                    </p>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__title">Liên hệ</h3>
+                    <ul class="footer__list">
+                        <li class="footer__item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            123 Đường ABC, Quận XYZ, TP.HCM
+                        </li>
+                        <li class="footer__item">
+                            <i class="fas fa-phone"></i>
+                            0123 456 789
+                        </li>
+                        <li class="footer__item">
+                            <i class="fas fa-envelope"></i>
+                            contact@example.com
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__title">Theo dõi chúng tôi</h3>
+                    <div class="footer__social">
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer__social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2024 Bán đồ gia dụng. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/category.js"></script>
+</body>
+</html> 
