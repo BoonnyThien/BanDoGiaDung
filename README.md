@@ -19,6 +19,63 @@
 - **Git**: Quản lý mã nguồn
 - **GitHub Pages**: Triển khai phiên bản web tĩnh
 
+## Kiến trúc dự án
+
+```mermaid
+graph TD
+    subgraph "Frontend"
+        A1[HTML5/CSS3] --> A2[JavaScript]
+        A2 --> A3[Fetch API]
+        A2 --> A4[LocalStorage]
+        A3 --> A5[Giao diện người dùng]
+        A4 --> A5
+    end
+    
+    subgraph "Backend"
+        B1[PHP] --> B2[PDO/MySQLi]
+        B2 --> B3[MySQL Database]
+        B1 --> B4[Xử lý logic nghiệp vụ]
+        B4 --> B5[API Endpoints]
+    end
+    
+    subgraph "Tính năng người dùng"
+        C1[Đăng ký/Đăng nhập]
+        C2[Xem sản phẩm]
+        C3[Giỏ hàng]
+        C4[Đặt hàng]
+        C5[So sánh sản phẩm]
+        C6[Yêu thích]
+    end
+    
+    subgraph "Tính năng quản trị"
+        D1[Quản lý sản phẩm]
+        D2[Quản lý danh mục]
+        D3[Quản lý người dùng]
+        D4[Quản lý đơn hàng]
+        D5[Thống kê doanh thu]
+        D6[Quản lý thương hiệu]
+    end
+    
+    A5 --> B5
+    B5 --> A3
+    
+    B5 --> C1
+    B5 --> C2
+    B5 --> C3
+    B5 --> C4
+    B5 --> C5
+    B5 --> C6
+    
+    B5 --> D1
+    B5 --> D2
+    B5 --> D3
+    B5 --> D4
+    B5 --> D5
+    B5 --> D6
+    
+    B3 --> B2
+```
+
 ## Tính năng chính
 
 ### Người dùng
@@ -38,52 +95,18 @@
 - **Thống kê doanh thu**: Xem báo cáo doanh thu theo thời gian
 - **Quản lý thương hiệu**: Thêm, sửa, xóa thương hiệu sản phẩm
 
-## Cấu trúc dự án
+## Cấu trúc thư mục dự án
 
-```mermaid
-graph TD
-    A[BanDoGiaDung] --> B[admin]
-    A --> C[frontend]
-    A --> D[assets]
-    A --> E[database]
-    A --> F[static-version]
-    
-    B --> B1[js]
-    B --> B2[php]
-    B --> B3[css]
-    
-    C --> C1[js]
-    C --> C2[php]
-    C --> C3[css]
-    C --> C4[components]
-    
-    D --> D1[img]
-    D --> D2[font]
-    
-    F --> F1[js]
-    F --> F2[css]
-    F --> F3[data]
-    
-    B1 --> B1a[quanli.js]
-    B1 --> B1b[quanliuser.js]
-    B1 --> B1c[doanhthu.js]
-    B1 --> B1d[danhmuc.js]
-    B1 --> B1e[thuonghieu.js]
-    
-    C1 --> C1a[index.js]
-    C1 --> C1b[giohang.js]
-    C1 --> C1c[chitiet.js]
-    C1 --> C1d[danhmuc.js]
-    C1 --> C1e[taikhoan.js]
-    C1 --> C1f[header.js]
-    
-    F1 --> F1a[app.js]
-    F1 --> F1b[cart.js]
-    F1 --> F1c[account.js]
-    F1 --> F1d[category.js]
-    F1 --> F1e[product-detail.js]
-    F1 --> F1f[compare.js]
-    F1 --> F1g[contact.js]
+```
+BanDoGiaDung/
+├── admin/           # Trang quản trị
+├── assets/          # Tài nguyên (images, fonts)
+├── database/        # File kết nối và xử lý database
+├── frontend/        # Giao diện người dùng
+│   ├── components/  # Các component tái sử dụng
+│   ├── css/        # File CSS
+│   └── js/         # File JavaScript
+└── static-version/  # Phiên bản web tĩnh để demo
 ```
 
 ## Cài đặt phiên bản Localhost
@@ -102,6 +125,19 @@ graph TD
 ## Phiên bản Web Tĩnh (Demo)
 
 Phiên bản web tĩnh được tạo để demo trên GitHub Pages, sử dụng HTML, CSS và JavaScript thuần. Dữ liệu sản phẩm được lưu dưới dạng JSON và các chức năng như giỏ hàng, đăng ký/đăng nhập được xử lý ở phía client bằng localStorage.
+
+### Cấu trúc thư mục phiên bản web tĩnh
+
+```
+static-version/
+├── assets/          # Chứa hình ảnh và font chữ
+├── css/             # Các file CSS
+├── js/              # Các file JavaScript
+├── data/            # Dữ liệu JSON
+├── index.html       # Trang chủ
+├── cart.html        # Trang giỏ hàng
+└── account.html     # Trang tài khoản
+```
 
 ### Cách sử dụng phiên bản web tĩnh
 
