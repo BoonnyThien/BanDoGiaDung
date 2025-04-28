@@ -1,0 +1,169 @@
+<!-- static-version/taikhoan.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop đồ gia dụng - Tài khoản cá nhân</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/message.css">
+    <link rel="stylesheet" href="./css/taikhoan.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/them.css">
+    <link rel="stylesheet" href="../assets/font/fontawesome-free-6.6.0-web/css/all.min.css">
+    <style>
+        .support-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .support-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        .support-form input,
+        .support-form textarea,
+        .support-form select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1.4rem;
+        }
+        .support-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .support-form .bt {
+            text-align: center;
+        }
+        .support-form input[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .support-form input[type="submit"]:hover {
+            background-color: #e55b5b;
+        }
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .notification.success {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .notification.error {
+            background-color: #f44336;
+            color: white;
+        }
+        .display_block {
+            display: block !important;
+        }
+        .display_none {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+    <div style="padding-top: 130px; padding-bottom: 50px; min-height: 500px; background-color: #f5f5f5;">
+        <div class="app__taikhoan">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__column-2">
+                        <div class="category" style="background-color: #f5f5f5; padding-top: 20px;">
+                            <h3 class="category__heading">
+                                <i class="category__heading-icon fa-solid fa-user-pen"></i>
+                                Tài khoản
+                            </h3>
+                            <ul class="category-list">
+                                <li class="category-item category-item--active">
+                                    <div class="category-item__link">
+                                        <i class="fa-regular fa-user" style="min-width: 20px;"></i>
+                                        Tài khoản của tôi
+                                    </div>
+                                </li>
+                                <li class="category-item">
+                                    <div class="category-item__link">
+                                        <i class="fa-regular fa-calendar-days" style="min-width: 20px;"></i>
+                                        Đơn mua
+                                    </div>
+                                </li>
+                                <li class="category-item">
+                                    <div class="category-item__link">
+                                        <i class="fa-solid fa-headset" style="min-width: 20px;"></i>
+                                        Trợ giúp
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid__column-10">
+                        <!-- Hồ sơ -->
+                        <div class="account_wrap">
+                            <div class="account_title">
+                                <p>Hồ sơ của tôi</p>
+                                <span>Quản lý thông tin hồ sơ để bảo mật tài khoản</span>
+                            </div>
+                            <div class="account_content grid__row" style="width: 100%;">
+                                <div class="grid__column-8" id="account-info"></div>
+                                <div class="grid__column-4">
+                                    <div class="account_img">
+                                        <div style="min-height:200px; padding-top: 40px; display: flex; justify-content: center;">
+                                            <img id="user-picture" src="../assets/img/user/user.png" alt="Ảnh người dùng">
+                                        </div>
+                                        <button class="btn btn_change-img">Chọn ảnh</button>
+                                        <input type="file" id="fileInput" name="user_picture" style="display: none;" accept=".jpg,.jpeg,.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Đơn mua -->
+                        <div class="order_wrap">
+                            <div class="order_title">
+                                <ul class="order_title-list">
+                                    <li class="order_title-child order_title-child--active"><span>Tất cả</span></li>
+                                    <li class="order_title-child"><span>Chờ thanh toán</span></li>
+                                    <li class="order_title-child"><span>Vận chuyển</span></li>
+                                    <li class="order_title-child"><span>Chờ giao hàng</span></li>
+                                    <li class="order_title-child"><span>Hoàn thành</span></li>
+                                </ul>
+                            </div>
+                            <div id="order-list"></div>
+                        </div>
+                        <!-- Trợ giúp -->
+                        <div class="support_wrap">
+                            <div class="support-form" id="support-form"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="./js/taikhoan.js"></script>
+    <script src="./js/header.js"></script>
+</body>
+</html>

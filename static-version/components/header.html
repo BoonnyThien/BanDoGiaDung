@@ -1,0 +1,220 @@
+<!-- header.html -->
+<header class="header">
+    <div class="header__navbar grid">
+        <ul class="header__navbar-list">
+            <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">
+                Cửa hàng đồ gia dụng nhóm 4
+                <div class="header__qr">
+                    <img src="../assets/img/qr_code.png" alt="QR code" class="header__qr-img">
+                    <div class="header__qr-apps">
+                        <a href="#" class="header__qr-link header__qr-boder-right">
+                            <img src="../assets/img/ch_play.png" alt="CH Play" class="header__qr-download">
+                        </a>
+                        <a href="#" class="header__qr-link">
+                            <img src="../assets/img/app_store.png" alt="App Store" class="header__qr-download">
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="header__navbar-item">
+                <span class="header__navbar-title--disable">Kết nối</span>
+                <a href="#" class="header__navbar-icon-link">
+                    <i class="header__navbar-icon fa-brands fa-facebook"></i>
+                </a>
+                <a href="#" class="header__navbar-icon-link">
+                    <i class="header__navbar-icon fa-brands fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="header__navbar-list">
+            <li class="header__navbar-item header__navbar-item--has-noti">
+                <a href="sosanh.html" class="header__navbar-itemlink">
+                    <i class="header__navbar-icon fa-solid fa-square-plus"></i>
+                    So Sánh
+                </a>
+            </li>
+            <li class="header__navbar-item help_active">
+                <a href="trogiup.html" class="header__navbar-itemlink">
+                    <i class="header__navbar-icon fa-regular fa-circle-question"></i>
+                    Trợ giúp
+                </a>
+            </li>
+            <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate">Đăng ký</li>
+            <li class="header__navbar-item header__navbar-item--strong">Đăng nhập</li>
+        </ul>
+    </div>
+
+    <div class="header-with-search grid">
+        <div class="header__logo">
+            <a href="index.html" class="header__logo-link">
+                <img class="header__logo-img" src="../assets/img/logo_shopee123.png" alt="Shopee">
+            </a>
+        </div>
+
+        <div class="header__search">
+            <div class="header__search-input-wrap">
+                <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
+                <div class="header__search-history">
+                    <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                    <ul class="header__search-history-list" id="search-history-list">
+                        <!-- Lịch sử tìm kiếm sẽ được thêm bởi JavaScript -->
+                    </ul>
+                </div>
+            </div>
+            <button class="header__search-btn">
+                <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <div class="header__cart">
+            <div class="header__cart-wrap">
+                <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                <span class="header__cart-notice" id="cart-count">0</span>
+                <div class="header__cart-list" id="cart-list">
+                    <img src="../assets/img/no_cart.png" alt="" class="header__cart-no-cart-img">
+                    <span class="header__cart-no-cart-title">Không có sản phẩm</span>
+                    <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                    <ul class="header__cart-list-item" id="cart-items">
+                        <!-- Sản phẩm trong giỏ hàng sẽ được thêm bởi JavaScript -->
+                    </ul>
+                    <a href="giohang.html" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thông báo -->
+    <div id="toast"></div>
+</header>
+
+<!-- Modal layout (Đăng nhập, đăng ký, xác nhận) -->
+<div class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__body">
+        <!-- Register Form -->
+        <form class="auth-form form-register">
+            <div class="auth-form__container">
+                <div class="auth-form__header">
+                    <h3 class="auth-form__heading">Đăng ký</h3>
+                    <span class="auth-form__switch-btn">Đăng nhập</span>
+                </div>
+                <div class="auth-form__form">
+                    <div class="auth-form__group">
+                        <input type="text" name="register_name" class="auth-form__input" placeholder="Nhập họ tên" required>
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="tel" name="register_phone" class="auth-form__input" pattern="[0-9]{10}" placeholder="Nhập số điện thoại" required>
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="email" name="register_email" class="auth-form__input" placeholder="Nhập Email" required>
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="text" name="register_address" class="auth-form__input" placeholder="Nhập địa chỉ" required>
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="text" name="register_account" class="auth-form__input" placeholder="Nhập tên đăng nhập" required>
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="password" name="register_password" class="auth-form__input" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="password" name="register_confirm_password" class="auth-form__input" placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                </div>
+                <div class="auth-form__aside">
+                    <p class="auth-form__policy-text">
+                        Bằng việc đăng ký bạn đã đồng ý với chúng tôi về
+                        <a href="#" class="auth-form__text-link">Điều khoản dịch vụ</a> &
+                        <a href="#" class="auth-form__text-link">Chính sách bảo mật</a>
+                    </p>
+                </div>
+                <div class="auth-form__controls">
+                    <button type="button" class="btn auth-form__controls-back btn--normal">TRỞ LẠI</button>
+                    <button type="submit" name="dangky" class="btn btn--primary">ĐĂNG KÝ</button>
+                </div>
+            </div>
+            <div class="auth-form__socials">
+                <a href="#" class="auth-form__socials--facebook btn btn__with-icon btn-size-s">
+                    <i class="auth-form__socials-icon fa-brands fa-square-facebook"></i>
+                    <span class="auth-form__socials-title">Kết nối với FaceBook</span>
+                </a>
+                <a href="#" class="auth-form__socials--google btn btn__with-icon btn-size-s">
+                    <i class="auth-form__socials-icon fa-brands fa-google"></i>
+                    <span class="auth-form__socials-title">Kết nối với GooGle</span>
+                </a>
+            </div>
+        </form>
+
+        <!-- Login Form -->
+        <form class="auth-form form-login">
+            <div class="auth-form__container">
+                <div class="auth-form__header">
+                    <h3 class="auth-form__heading">Đăng nhập</h3>
+                    <span class="auth-form__switch-btn">Đăng ký</span>
+                </div>
+                <div class="auth-form__form">
+                    <div class="auth-form__group">
+                        <input type="text" name="login_account" class="auth-form__input" placeholder="Nhập tài khoản" required>
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="password" name="login_password" class="auth-form__input" placeholder="Nhập mật khẩu" required>
+                    </div>
+                </div>
+                <div class="auth-form__aside">
+                    <div class="auth-form__help">
+                        <a href="#" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                        <a href="#" class="auth-form__help-link auth-form__help-needhelp">Cần trợ giúp ?</a>
+                    </div>
+                </div>  
+                <div class="auth-form__controls">
+                    <button type="button" class="btn auth-form__controls-back btn--normal">TRỞ LẠI</button>
+                    <button type="submit" name="dangnhap" class="btn btn--primary">ĐĂNG NHẬP</button>
+                </div>
+            </div>
+            <div class="auth-form__socials">
+                <a href="#" class="auth-form__socials--facebook btn btn__with-icon btn-size-s">
+                    <i class="auth-form__socials-icon fa-brands fa-square-facebook"></i>
+                    <span class="auth-form__socials-title">Đăng nhập với FaceBook</span>
+                </a>
+                <a href="#" class="auth-form__socials--google btn btn__with-icon btn-size-s">
+                    <i class="auth-form__socials-icon fa-brands fa-google"></i>
+                    <span class="auth-form__socials-title">Đăng nhập với GooGle</span>
+                </a>
+            </div>
+        </form>
+
+        <!-- Form xác nhận thông tin nhận hàng -->
+        <form class="auth-form form-confirm" name="help">
+            <div class="auth-form__container">
+                <div class="auth-form__header">
+                    <h3 class="auth-form__heading" style="width: 100%; text-align: center;">Xác nhận thông tin nhận hàng</h3>
+                </div>
+                <div class="auth-form__form">
+                    <div class="auth-form__group">
+                        <input type="text" id="name_confirm" class="auth-form__input" placeholder="Nhập tên của bạn" required>
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="text" id="phone_confirm" class="auth-form__input" placeholder="Nhập số điện thoại" required>
+                    </div>
+                    <div class="auth-form__group">
+                        <input type="text" id="address_confirm" class="auth-form__input" placeholder="Nhập địa chỉ" required>
+                    </div>
+                </div>
+                <div class="auth-form__aside">
+                    <p class="auth-form__policy-text">
+                        Nếu bạn gặp vấn đề xin vui lòng liên hệ với chúng tôi qua sdt:
+                        <a href="#" class="auth-form__text-link">0353991328</a> &
+                        <a href="#" class="auth-form__text-link">nguyenduong@gmail.com.vn</a>
+                    </p>
+                </div>
+                <div class="auth-form__controls">
+                    <button type="button" class="btn auth-form__controls-back btn--normal">TRỞ LẠI</button>
+                    <button type="button" name="confirm" class="btn btn--primary btn_confirm-address">XÁC NHẬN</button>
+                </div>
+            </div>
+            <div class="auth-form__socials"></div>
+        </form>
+    </div>
+</div>
+<script src="./js/header.js"></script>

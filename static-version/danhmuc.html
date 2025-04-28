@@ -1,0 +1,124 @@
+<!-- danhmuc.html (cập nhật phần header và footer) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop đồ gia dụng - Danh mục</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/message.css">
+    <link rel="stylesheet" href="./css/danhmuc.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../assets/font/fontawesome-free-6.6.0-web/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Slider -->
+    <div class="slider_header">
+        <div class="slider_header-wrap grid">
+            <div class="slide_header-169 slide_header-103">
+                <a href="#"><img class="slider_header-img" src="../assets/img/slider_img/slide6.png" alt="Slide 6"></a>
+                <a href="#"><img class="slider_header-img" src="../assets/img/slider_img/slide7.png" alt="Slide 7"></a>
+                <a href="#"><img class="slider_header-img" src="../assets/img/slider_img/slide8.png" alt="Slide 8"></a>
+                <a href="#"><img class="slider_header-img" src="../assets/img/slider_img/slide9.png" alt="Slide 9"></a>
+                <a href="#"><img class="slider_header-img" src="../assets/img/slider_img/slide10.png" alt="Slide 10"></a>
+            </div>
+            <div class="slider_header-dot-wrap">
+                <div class="slider_header-dot dot_active"></div>
+                <div class="slider_header-dot"></div>
+                <div class="slider_header-dot"></div>
+                <div class="slider_header-dot"></div>
+                <div class="slider_header-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="app__container">
+        <div class="grid">
+            <div class="grid__row app__content">
+                <!-- Danh mục và bộ lọc -->
+                <div class="grid__column-2">
+                    <div class="category">
+                        <h3 class="category__heading">
+                            <i class="category__heading-icon fa-solid fa-bars"></i>
+                            Danh mục
+                        </h3>
+                        <ul class="category-list" id="category-list"></ul>
+
+                        <h3 style="font-size: 1.4rem; font-weight: normal;" class="category__heading">
+                            Thương hiệu
+                        </h3>
+                        <ul class="category-list" id="brand-list"></ul>
+
+                        <h3 style="font-size: 1.4rem; font-weight: normal;" class="category__heading">
+                            Khoảng giá
+                        </h3>
+                        <div class="category_check-price">
+                            <input class="category-price price_start" type="number" min="0" value="0">
+                            <span>-</span>
+                            <input class="category-price price_end" type="number" min="0" value="0">
+                        </div>
+                        <button class="btn check-price-btn">Áp dụng</button>
+                    </div>
+                </div>
+
+                <!-- Sản phẩm -->
+                <div class="grid__column-10">
+                    <h1 class="home_title" id="category-title"></h1>
+                    <div class="home-filter">
+                        <span class="home-filter__label">Sắp xếp theo</span>
+                        <button class="btn home-filter__btn">Phổ biến</button>
+                        <button class="btn home-filter__btn">Mới nhất</button>
+
+                        <div class="select-input">
+                            <span class="select-input__label">Giá : </span>
+                            <i class="select-input-icon fa-solid fa-angle-down"></i>
+                            <ul class="select-input__list">
+                                <li class="select-input__item">
+                                    <a href="#" class="select-input__link">Giá : Thấp đến cao</a>
+                                </li>
+                                <li class="select-input__item">
+                                    <a href="#" class="select-input__link">Giá : Cao đến thấp</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="home-filter__page">
+                            <span class="home-filter__page-num">
+                                <span class="home-filter__page-curent" id="current-page"></span>/<span id="total-pages"></span>
+                            </span>
+                            <div class="home-filter__page-control">
+                                <a href="#" class="home-filter__page-btn" id="prev-page">
+                                    <i class="home-filter__page-icon fa-solid fa-angle-left"></i>
+                                </a>
+                                <a href="#" class="home-filter__page-btn" id="next-page">
+                                    <i class="home-filter__page-icon fa-solid fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="home-product">
+                        <div class="grid__row parent_product" id="product-list"></div>
+                    </div>
+
+                    <!-- Phân trang -->
+                    <ul class="pagination home-product__pagination" id="pagination"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="./js/danhmuc.js"></script>
+    <script src="./js/header.js"></script>
+</body>
+</html>

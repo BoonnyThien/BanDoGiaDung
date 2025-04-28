@@ -8,16 +8,22 @@
 - **PHP**: Xử lý logic nghiệp vụ và tương tác với cơ sở dữ liệu
 - **MySQL**: Cơ sở dữ liệu lưu trữ thông tin sản phẩm, người dùng, đơn hàng
 - **PDO/MySQLi**: Kết nối và truy vấn cơ sở dữ liệu
+- **GraphQL Mock**: Giả lập API động cho phiên bản web tĩnh
 
 ### Frontend
 - **HTML5/CSS3**: Xây dựng giao diện người dùng
 - **JavaScript**: Xử lý tương tác người dùng và tương tác với backend
 - **AJAX/Fetch API**: Giao tiếp bất đồng bộ với server
 - **LocalStorage**: Lưu trữ dữ liệu tạm thời ở phía client (phiên bản web tĩnh)
+- **Service Worker**: Hỗ trợ offline và caching
+- **Web Workers**: Xử lý tác vụ nặng (tìm kiếm, xử lý dữ liệu) trong background
+- **Lazy Loading**: Tối ưu tải trang và tài nguyên
+- **Code Splitting**: Chia nhỏ code để tải theo nhu cầu
 
 ### Công cụ phát triển
 - **Git**: Quản lý mã nguồn
 - **GitHub Pages**: Triển khai phiên bản web tĩnh
+- **MSW (Mock Service Worker)**: Giả lập API cho môi trường phát triển
 
 ## Kiến trúc dự án
 
@@ -27,8 +33,16 @@ graph TD
         A1[HTML5/CSS3] --> A2[JavaScript]
         A2 --> A3[Fetch API]
         A2 --> A4[LocalStorage]
-        A3 --> A5[Giao diện người dùng]
-        A4 --> A5
+        A2 --> A5[Service Worker]
+        A2 --> A6[Web Workers]
+        A2 --> A7[Lazy Loading]
+        A2 --> A8[Code Splitting]
+        A3 --> A9[Giao diện người dùng]
+        A4 --> A9
+        A5 --> A9
+        A6 --> A9
+        A7 --> A9
+        A8 --> A9
     end
     
     subgraph "Backend"
@@ -36,6 +50,7 @@ graph TD
         B2 --> B3[MySQL Database]
         B1 --> B4[Xử lý logic nghiệp vụ]
         B4 --> B5[API Endpoints]
+        B5 --> B6[GraphQL Mock]
     end
     
     subgraph "Tính năng người dùng"
@@ -45,6 +60,7 @@ graph TD
         C4[Đặt hàng]
         C5[So sánh sản phẩm]
         C6[Yêu thích]
+        C7[Tìm kiếm nâng cao]
     end
     
     subgraph "Tính năng quản trị"
@@ -56,8 +72,9 @@ graph TD
         D6[Quản lý thương hiệu]
     end
     
-    A5 --> B5
+    A9 --> B5
     B5 --> A3
+    B6 --> A3
     
     B5 --> C1
     B5 --> C2
@@ -65,6 +82,7 @@ graph TD
     B5 --> C4
     B5 --> C5
     B5 --> C6
+    B5 --> C7
     
     B5 --> D1
     B5 --> D2
@@ -86,6 +104,8 @@ graph TD
 - **Đặt hàng**: Tạo đơn hàng từ giỏ hàng
 - **So sánh sản phẩm**: So sánh thông tin giữa các sản phẩm
 - **Yêu thích**: Lưu sản phẩm yêu thích
+- **Tìm kiếm nâng cao**: Tìm kiếm sản phẩm với nhiều tiêu chí
+- **Offline Mode**: Xem sản phẩm và giỏ hàng khi không có internet
 
 ### Quản trị viên
 - **Quản lý sản phẩm**: Thêm, sửa, xóa sản phẩm
@@ -94,6 +114,33 @@ graph TD
 - **Quản lý đơn hàng**: Xem và cập nhật trạng thái đơn hàng
 - **Thống kê doanh thu**: Xem báo cáo doanh thu theo thời gian
 - **Quản lý thương hiệu**: Thêm, sửa, xóa thương hiệu sản phẩm
+
+## Tối ưu hiệu suất
+
+### Lazy Loading
+- **Hình ảnh**: Tải hình ảnh khi chúng xuất hiện trong viewport
+- **Component**: Tải các component không cần thiết ngay lập tức
+- **Tài nguyên**: Tải các tài nguyên (CSS, JS) theo nhu cầu
+
+### Code Splitting
+- **Route-based**: Chia code theo route
+- **Component-based**: Chia code theo component
+- **Dynamic Import**: Tải module động khi cần
+
+### Web Workers
+- **Xử lý tìm kiếm**: Chạy tìm kiếm trong background thread
+- **Xử lý dữ liệu**: Xử lý dữ liệu lớn không block UI
+- **Cache Management**: Quản lý cache trong background
+
+### Service Worker
+- **Offline Support**: Hỗ trợ xem sản phẩm offline
+- **Caching Strategy**: Cache-first cho tài nguyên tĩnh
+- **Background Sync**: Đồng bộ dữ liệu khi có kết nối
+
+### GraphQL Mock
+- **API Simulation**: Giả lập API cho môi trường phát triển
+- **Schema Definition**: Định nghĩa schema cho dữ liệu
+- **Mock Data**: Tạo dữ liệu giả cho testing
 
 ## Cấu trúc thư mục dự án
 

@@ -1,86 +1,93 @@
+<!-- static-version/index.html -->
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Đồ Gia Dụng - Demo</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Shop đồ gia dụng</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/message.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../assets/font/fontawesome-free-6.6.0-web/css/all.min.css">
+    <script src="https://unpkg.com/preact@latest/dist/preact.umd.js"></script>
+<script src="https://unpkg.com/preact-router@latest/dist/preact-router.umd.js"></script>
+    <script src="https://unpkg.com/msw@latest/lib/umd/index.js"></script>
+    <script src="./js/mockApi.js"></script>
 </head>
 <body>
-    <header>
-        <div class="header-top">
-            <div class="container">
-                <div class="logo">
-                    <h1>Shop Đồ Gia Dụng</h1>
-                </div>
-                <div class="search">
-                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-                <div class="header-right">
-                    <a href="account.html" class="account-link">
-                        <i class="fas fa-user"></i>
-                        <span>Tài khoản</span>
-                    </a>
-                    <a href="cart.html" class="cart-link">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>Giỏ hàng</span>
-                        <span class="cart-count">0</span>
-                    </a>
-                </div>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Slider -->
+    <div class="slider_header">
+        <div class="slider_header-wrap grid">
+            <div class="slide_header-169">
+                <a href="#"><img class="slider_header-img" src="../assets/img/slider_img/slide1.png" alt="Slide 1" loading="lazy"></a>
+                <a href="#"><img class="slider_header-img" src="../assets/img/slider_img/slide2.png" alt="Slide 2" loading="lazy"></a>
+                <a href="#"><img class="slider_header-img" src="../assets/img/slider_img/slide3.png" alt="Slide 3" loading="lazy"></a>
+                <a href="#"><img class="slider_header-img" src="../assets/img/slider_img/slide4.png" alt="Slide 4" loading="lazy"></a>
+                <a href="#"><img class="slider_header-img" src="../assets/img/slider_img/slide5.png" alt="Slide 5" loading="lazy"></a>
+            </div>
+            <div class="slider_header-dot-wrap">
+                <div class="slider_header-dot dot_active"></div>
+                <div class="slider_header-dot"></div>
+                <div class="slider_header-dot"></div>
+                <div class="slider_header-dot"></div>
+                <div class="slider_header-dot"></div>
             </div>
         </div>
-        <nav class="main-nav">
-            <div class="container">
-                <ul class="categories">
-                    <!-- Categories will be loaded dynamically -->
-                </ul>
-            </div>
-        </nav>
-    </header>
+    </div>
 
-    <main>
-        <div class="container">
-            <section class="featured-products">
-                <h2>Sản phẩm nổi bật</h2>
-                <div class="products-grid">
-                    <!-- Products will be loaded dynamically -->
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Về chúng tôi</h3>
-                    <p>Shop Đồ Gia Dụng - Nơi mua sắm tin cậy cho mọi gia đình</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Liên hệ</h3>
-                    <p>Email: contact@shopdogiadung.com</p>
-                    <p>Phone: 0123 456 789</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Theo dõi chúng tôi</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+    <!-- Main Content -->
+    <div class="app__container">
+        <div class="grid">
+            <div class="grid__row app__content">
+                <!-- Danh mục -->
+                <div class="grid__column-2 div_cha" style="position: relative; background-color: #fff;">
+                    <div class="category">
+                        <h3 class="category__heading">
+                            <i class="category__heading-icon fa-solid fa-bars"></i>
+                            Danh mục
+                        </h3>
+                        <ul class="category-list" id="category-list"></ul>
                     </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Shop Đồ Gia Dụng. All rights reserved.</p>
+
+                <!-- Sản phẩm HOT -->
+                <div class="grid__column-10">
+                    <div class="home-product" id="hot-products" style="padding: 15px; background-color: rgb(246, 232, 224); border-radius: 20px; margin-bottom: 40px;">
+                        <div class="next_product"><i class="fa-solid fa-angle-right"></i></div>
+                        <div class="before_product"><i class="fa-solid fa-angle-left"></i></div>
+                        <div style="display: inline-block; padding: 10px 0px; margin: 10px 12px; font-size: 2.5rem; font-weight: 800; color: var(--primary-color); border-bottom: 2px solid var(--primary-color);">
+                            Sản phẩm HOT <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <div style="overflow: hidden;">
+                            <div class="grid_no_wrap" id="hot-products-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Sản phẩm gợi ý -->
+                    <div class="home-product">
+                        <h1 id="suggestion-title" style="width: 100%; text-align: center; color: var(--primary-color); font-size: 2.5rem; margin-top: 0; padding: 30px 0 20px; background-color: var(--white-color); border-bottom: 5px solid var(--primary-color);">
+                            Gợi ý hôm nay
+                        </h1>
+                        <div class="grid__row" id="suggested-products"></div>
+                    </div>
+
+                    <!-- Phân trang -->
+                    <ul class="pagination home-product__pagination" id="pagination"></ul>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <script src="js/app.js"></script>
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- JavaScript -->
+    <script src="./js/index.js"></script>
+    <script src="./js/header.js"></script>
 </body>
-</html> 
+</html>
