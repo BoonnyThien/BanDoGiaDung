@@ -1,5 +1,4 @@
 # Website Bán Đồ Gia Dụng
-
 Đây là một website bán đồ gia dụng được xây dựng bằng PHP thuần và MySQL, với phiên bản web tĩnh để demo trên GitHub Pages.
 
 ## Công nghệ sử dụng
