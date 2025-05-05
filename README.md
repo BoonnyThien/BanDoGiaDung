@@ -2,7 +2,6 @@
 Đây là một website bán đồ gia dụng được xây dựng bằng PHP thuần và MySQL, với phiên bản web tĩnh để demo trên GitHub Pages.
 
 ## Công nghệ sử dụng
-
 ### Backend
 - **PHP**: Xử lý logic nghiệp vụ và tương tác với cơ sở dữ liệu
 - **MySQL**: Cơ sở dữ liệu lưu trữ thông tin sản phẩm, người dùng, đơn hàng
