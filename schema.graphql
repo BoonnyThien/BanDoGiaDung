@@ -1,0 +1,30 @@
+# static-version/schema.graphql
+type Product {
+    product_id: ID!
+    category_id: Int
+    brand_id: Int
+    product_name: String
+    main_image: String
+    old_price: Int
+    new_price: Int
+    origin: String
+    quantity: Int
+    is_hot: String
+}
+
+type Brand {
+    brand_id: ID!
+    brand_name: String
+}
+
+type Category {
+    category_id: ID!
+    category_name: String
+}
+
+type Query {
+    products: [Product]
+    product(id: ID!): Product
+    brands: [Brand]
+    categories: [Category]
+}

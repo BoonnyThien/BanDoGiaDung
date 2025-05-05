@@ -1,35 +1,4 @@
-console.log("trogiup.js loaded");
-Promise.all([
-    fetch('./static-version/components/header.html').then(response => {
-        if (!response.ok) throw new Error('Không tải được header.html');
-        return response.text();
-    }),
-    fetch('./static-version/components/footer.html').then(response => {
-        if (!response.ok) throw new Error('Không tải được footer.html');
-        return response.text();
-    }),
-    fetch('./web_giadung.json').then(response => {
-        if (!response.ok) throw new Error('Không tải được web_giadung.json');
-        return response.json();
-    })
-]).then(([headerContent, footerContent, jsonData]) => {
-    const headerElement = $('#header');
-    const footerElement = $('#footer');
-    if (headerElement) headerElement.innerHTML = headerContent;
-    else console.warn('Header element not found!');
-    if (footerElement) footerElement.innerHTML = footerContent;
-    else console.warn('Footer element not found!');
-}).catch(error => console.error('Lỗi:', error));
-
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("support-form");
-    if (container) {
-        renderSupportForm(container).catch(error => console.error('Lỗi render form:', error));
-    } else {
-        console.warn('Support form container not found!');
-    }
-});
-
+// static-version/js/trogiup.js
 function $(selector) {
     return document.querySelector(selector);
 }
@@ -43,17 +12,10 @@ function renderSupportForm(container) {
     return new Promise((resolve, reject) => {
         // Tải dữ liệu JSON
         fetch('./web_giadung.json')
-            .then(response => {
-                if (!response.ok) throw new Error('Không tải được web_giadung.json');
-                return response.json();
-            })
+            .then(response => response.json())
             .then(jsonData => {
                 // Lấy dữ liệu từ JSON
-                const problemsTable = jsonData.tables.find(table => table.name === "tbl_problem");
-                if (!problemsTable || !problemsTable.data) {
-                    throw new Error('Dữ liệu tbl_problem không hợp lệ trong web_giadung.json');
-                }
-                const problems = problemsTable.data;
+                const problems = jsonData.tables.find(table => table.name === "tbl_problem").data;
 
                 // Kiểm tra trạng thái đăng nhập (dùng localStorage)
                 const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) || null;
@@ -210,7 +172,6 @@ function renderSupportForm(container) {
             })
             .catch(error => {
                 console.error('Error loading data:', error);
-                showError('Không thể tải dữ liệu, vui lòng thử lại sau!');
                 reject(error);
             });
     });
@@ -218,50 +179,46 @@ function renderSupportForm(container) {
 
 // Hàm hiển thị thông báo thành công (từ message.js)
 function showsuccess(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast toast--success';
+    toast.innerHTML = `
+        <div class="toast__icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="toast__body">
+            <h3 class="toast__title">Thành công</h3>
+            <p class="toast__msg">${message}</p>
+        </div>
+        <div class="toast__close">
+            <i class="fas fa-times"></i>
+        </div>
+    `;
     const toastContainer = $('#toast');
     if (toastContainer) {
-        const toast = document.createElement('div');
-        toast.className = 'toast toast--success';
-        toast.innerHTML = `
-            <div class="toast__icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <div class="toast__body">
-                <h3 class="toast__title">Thành công</h3>
-                <p class="toast__msg">${message}</p>
-            </div>
-            <div class="toast__close">
-                <i class="fas fa-times"></i>
-            </div>
-        `;
         toastContainer.appendChild(toast);
         setTimeout(() => toast.remove(), 3000);
-    } else {
-        console.warn('Toast container not found!');
     }
 }
 
 // Hàm hiển thị thông báo lỗi
 function showError(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast toast--error';
+    toast.innerHTML = `
+        <div class="toast__icon">
+            <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <div class="toast__body">
+            <h3 class="toast__title">Lỗi</h3>
+            <p class="toast__msg">${message}</p>
+        </div>
+        <div class="toast__close">
+            <i class="fas fa-times"></i>
+        </div>
+    `;
     const toastContainer = $('#toast');
     if (toastContainer) {
-        const toast = document.createElement('div');
-        toast.className = 'toast toast--error';
-        toast.innerHTML = `
-            <div class="toast__icon">
-                <i class="fas fa-exclamation-circle"></i>
-            </div>
-            <div class="toast__body">
-                <h3 class="toast__title">Lỗi</h3>
-                <p class="toast__msg">${message}</p>
-            </div>
-            <div class="toast__close">
-                <i class="fas fa-times"></i>
-            </div>
-        `;
         toastContainer.appendChild(toast);
         setTimeout(() => toast.remove(), 3000);
-    } else {
-        console.warn('Toast container not found!');
     }
 }

@@ -1,3 +1,4 @@
+// static-version/js/sosanh.js
 function $(selector) {
     return document.querySelector(selector);
 }
@@ -30,8 +31,6 @@ function toast({ title = '', message = '', type = 'success', duration = 1100 }) 
             main.removeChild(toast);
             main.classList.remove('display_flex');
         }, duration + 1000);
-    } else {
-        console.warn('Toast container not found!');
     }
 }
 
@@ -51,39 +50,18 @@ function showerror(message) {
     });
 }
 
-// Tải header, footer và dữ liệu JSON với kiểm tra lỗi
+// Tải header, footer và dữ liệu JSON
 Promise.all([
-    fetch('./static-version/components/header.html').then(response => {
-        if (!response.ok) throw new Error('Không tải được header.html');
-        return response.text();
-    }),
-    fetch('./static-version/components/footer.html').then(response => {
-        if (!response.ok) throw new Error('Không tải được footer.html');
-        return response.text();
-    }),
-    fetch('./web_giadung.json').then(response => {
-        if (!response.ok) throw new Error('Không tải được web_giadung.json');
-        return response.json();
-    })
+    fetch('./static-version/components/header.html').then(response => response.text()),
+    fetch('./static-version/components/footer.html').then(response => response.text()),
+    fetch('./web_giadung.json').then(response => response.json())
 ]).then(([headerContent, footerContent, jsonData]) => {
-    const headerElement = $('#header');
-    const footerElement = $('#footer');
-    if (headerElement) headerElement.innerHTML = headerContent;
-    else console.warn('Header element not found!');
-
-    if (footerElement) footerElement.innerHTML = footerContent;
-    else console.warn('Footer element not found!');
+    $('#header').innerHTML = headerContent;
+    $('#footer').innerHTML = footerContent;
 
     // Lấy dữ liệu từ JSON
-    const productsTable = jsonData.tables.find(table => table.name === "tbl_product");
-    const brandsTable = jsonData.tables.find(table => table.name === "tbl_brand");
-
-    if (!productsTable || !brandsTable) {
-        throw new Error('Dữ liệu JSON không chứa bảng tbl_product hoặc tbl_brand!');
-    }
-
-    const products = productsTable.data;
-    const brands = brandsTable.data;
+    const products = jsonData.tables.find(table => table.name === "tbl_product").data;
+    const brands = jsonData.tables.find(table => table.name === "tbl_brand").data;
 
     // Khởi tạo danh sách so sánh từ localStorage
     let compareProducts = JSON.parse(localStorage.getItem('compare_products')) || Array(4).fill(null);
@@ -113,11 +91,6 @@ Promise.all([
 
     // Hiển thị bảng so sánh và kết quả tìm kiếm
     const compareContent = $('#compare-content');
-    if (!compareContent) {
-        console.error('Compare content element not found!');
-        return;
-    }
-
     function renderCompareContent() {
         const fields = {
             'Hình ảnh': ['main_image', 'image'],
@@ -302,5 +275,4 @@ Promise.all([
 
 }).catch(error => {
     console.error('Error loading data:', error);
-    showerror('Không thể tải dữ liệu, vui lòng thử lại sau!');
 });

@@ -100,12 +100,8 @@ function confirm_show() {
     }
 }
 
-// Khởi tạo sự kiện khi DOM được tải
-document.addEventListener('DOMContentLoaded', initializeHeaderEvents);
-
 // Hàm khởi tạo sự kiện cho header
 function initializeHeaderEvents() {
-    
     // Tải dữ liệu JSON
     fetch('./web_giadung.json')
         .then(response => response.json())
@@ -120,34 +116,31 @@ function initializeHeaderEvents() {
             // Cập nhật giao diện đăng nhập/đăng ký/tài khoản
             const loginLink = $('.header__navbar-item--strong:nth-last-child(1)');
             const registerLink = $('.header__navbar-item--strong:nth-last-child(2)');
-
             if (loggedInUser) {
                 // Nếu đã đăng nhập, hiển thị tên người dùng và nút đăng xuất
-                if (registerLink) registerLink.style.display = 'none';
-                if (loginLink) {
-                    loginLink.innerHTML = `
-                        <a href="taikhoan.html" class="header__navbar-itemlink">
-                            <i class="header__navbar-icon fa-regular fa-user"></i>
-                            ${loggedInUser.user_name}
-                        </a>
-                        <span class="header__navbar-item--strong logout">Đăng xuất</span>
-                    `;
+                registerLink.style.display = 'none';
+                loginLink.innerHTML = `
+                    <a href="taikhoan.html" class="header__navbar-itemlink">
+                        <i class="header__navbar-icon fa-regular fa-user"></i>
+                        ${loggedInUser.user_name}
+                    </a>
+                    <span class="header__navbar-item--strong logout">Đăng xuất</span>
+                `;
 
-                    const logoutLink = $('.logout');
-                    if (logoutLink) {
-                        logoutLink.addEventListener('click', function () {
-                            localStorage.removeItem('loggedInUser');
-                            showsuccess('Đăng xuất thành công!');
-                            setTimeout(() => window.location.reload(), 2000);
-                        });
-                    }
+                // Xử lý đăng xuất
+                const logoutLink = $('.logout');
+                if (logoutLink) {
+                    logoutLink.addEventListener('click', function () {
+                        localStorage.removeItem('loggedInUser');
+                        showsuccess('Đăng xuất thành công!');
+                        setTimeout(() => window.location.reload(), 2000);
+                    });
                 }
             } else {
                 // Nếu chưa đăng nhập, hiển thị nút "Đăng ký" và "Đăng nhập"
-                if (registerLink) registerLink.addEventListener('click', register_show);
-                if (loginLink) loginLink.addEventListener('click', login_show);
+                registerLink.addEventListener('click', register_show);
+                loginLink.addEventListener('click', login_show);
             }
-
 
             // Hiển thị giỏ hàng
             const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
@@ -357,3 +350,5 @@ function initializeHeaderEvents() {
         .catch(error => console.error('Error loading data:', error));
 }
 
+// Khởi tạo sự kiện khi DOM được tải
+document.addEventListener('DOMContentLoaded', initializeHeaderEvents);
